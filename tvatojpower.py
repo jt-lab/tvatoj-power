@@ -28,6 +28,8 @@ from numpy.random import random as runif
 from tqdm import tqdm
 import pymc3
 import pandas as pd
+from scipy.optimize import fmin
+from scipy.stats import *
 from tqdm import tqdm
 from scipy.stats import beta
 import sys, logging
@@ -56,12 +58,12 @@ def tvatoj_psychometric_function(SOA, C, wp, vp=None, vr=None):
 def simulate_subject_toj(SOA, reps, C, wp):
     v1 = C * wp                             # attentional weights and overall rate C ...
     v2 = C * (1 -wp)                        # ... determine the individual rates
-    probe_first_count = 0               # Our counter each SOA starts with zero
-    for i in range(0, reps):         # For every repetition
-        tS = -log(1 - runif(1)) / v2    # let stimulus 2 race and record its VSTM arrival
-        tC =  SOA - log(1 - runif(1)) / v1 # sane for stimulus 1, offset by the SOA
-        if tC < tS:                     # Did 1 arrive before 2?
-            probe_first_count += 1   # Count as a "probe first judment"
+    probe_first_count = 0                   # Our counter each SOA starts with zero
+    for i in range(0, reps):                # For every repetition
+        tS = -log(1 - runif(1)) / v2        # let stimulus 2 race and record its VSTM arrival
+        tC =  SOA - log(1 - runif(1)) / v1  # sane for stimulus 1, offset by the SOA
+        if tC < tS:                         # Did 1 arrive before 2?
+            probe_first_count += 1          # Count as a "probe first judment"
     return probe_first_count                # Return the result across all SOAs
 
 
@@ -210,13 +212,9 @@ def hierachical_model_noncentered(data, single_C=False, single_wp=False):
             wp_vs_point5_mean = pymc3.Deterministic('wp_mean', mean(wp)) 
         return(model)
 
-        """
-This program finds the HDI of a probability density function that is specified 
-mathematically in Python.
-"""
-from scipy.optimize import fmin
-from scipy.stats import *
-
+ 
+# This function is borrowed from @aloctavodia, who ported it from John Kruschke's scripts
+# https://github.com/aloctavodia/Doing_bayesian_data_analysis/blob/master/HDIofICDF.py
 def HDIofICDF(dist_name, credMass=0.95, **args):
     # freeze distribution with given arguments
     distri = dist_name(**args)
