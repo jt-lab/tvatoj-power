@@ -173,11 +173,11 @@ def hierachical_model_noncentered(data, single_C=False, single_wp=False):
             
         pfc =  pymc3.Data('probe_first_count',data['probe_first_count'])
 
-        C_mu = pymc3.Normal('C_mu', 0.100, 0.050, shape=len(set(C_c_id)))
-        C_sd = pymc3.HalfCauchy('C_sd', 1, shape=len(set(C_c_id)))
+        C_mu = pymc3.Normal('C_mu', 0.080, 0.050, shape=len(set(C_c_id)))
+        C_sd = pymc3.HalfCauchy('C_sd', 0.1, shape=len(set(C_c_id)))
         
         wp_mu = pymc3.Normal('wp_mu', 0.5,0.2, shape=len(set(wp_c_id)))
-        wp_sd = pymc3.HalfCauchy('wp_sd', 1, shape=len(set(wp_c_id)))
+        wp_sd = pymc3.HalfCauchy('wp_sd', 0.2, shape=len(set(wp_c_id)))
 
         wp_e = pymc3.Normal('wp_e', 0,1, shape=(len(set(p_id)), len(set(wp_c_id))))
         C_e = pymc3.Normal('C_e', 0,1, shape=(len(set(p_id)), len(set(C_c_id))))
