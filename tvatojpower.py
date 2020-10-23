@@ -144,7 +144,7 @@ def simulate_tojs(simulation_setup):
 
 # Using the non-centered reparamtrization to reduce divergenses
 # See here for the rationale: https://twiecki.io/blog/2017/02/08/bayesian-hierchical-non-centered/
-def hierachical_model_noncentered(data, single_C=False, single_wp=False):
+def hierarchical_model_noncentered(data, single_C=False, single_wp=False):
     '''Sets up a pymc3 model based on TVATOJ.
 
     :param data: A TOJ dataframe as return by the simulations

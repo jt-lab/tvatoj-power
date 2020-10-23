@@ -2,7 +2,7 @@
 # This work is licensed under the terms of the MIT license.  
 # For a copy, see <https://opensource.org/licenses/MIT>.
 
-from tvatojpower import hierachical_model_noncentered, sim_and_fit
+from tvatojpower import hierarchical_model_noncentered, sim_and_fit
 
 '''
 This is an example of a power estimation for a TOJ experiment with two conditions
@@ -44,7 +44,7 @@ def check_rates(summary_stats):
 
 # Step 3: Start the simulations and power estimation
 sim_and_fit(setup=design,                                   # The deisgn specified above
-            model_func=hierachical_model_noncentered,       # A function that returns a pymc3 model  
+            model_func=hierarchical_model_noncentered,       # A function that returns a pymc3 model  
             single_C=True,                                  # Let the simulator know we want the model with a shared C
             iterations=200,                                 # How many simulated experiments do we want?
             condition_func=check_rates,                     # A function that checks our goals (defined above)
