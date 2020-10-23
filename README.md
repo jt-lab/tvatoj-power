@@ -32,7 +32,7 @@ You should then find the following components:
 ## Priors
 Currently, the tvattoj-power uses hardcoded hyper-priors, which are visualized belwo in Figure 1. These priors are informed by typical measurements reported in the literature but are sufficiently vague to let new data (empirical or simulated) govern the posteriors. Note that these vaguely informed priors are used mainly to enable efficient sampling (e.g., by avoiding problematic extreme proposal). Currently, there is no interface to modify the priors. If you feel the need to used different priors, you will have to go into the hierarchical_model_noncentered function in [tvatojpower.py](./tvatojpower.py).
 
-![Prior Visualizations](prior-visualization.svg)
+![Prior Visualizations](prior-visualizations.svg)
  <em>Figure 1. Visualizations of the hyper-priors. Vertical lines mark values reported in the literature (solid lines are  from experiments that used the TVATOJ paradigm, dashed lines are from experiments using traditional whole repors). Further details and references to the cited literature can be found in [Tünnermann (2016, pp.153--154)](#5).  </em>
 
 
