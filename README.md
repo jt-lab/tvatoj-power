@@ -7,7 +7,7 @@ TVATOJ-power is a Python module plus examples for performing Bayesian power esti
 * example_power_exp_1.py: Example power simulation for a *within*-participants design with an attention and a neutral condition.
 * example_power_exp_2.py: Example power simulation for a *between*-participants design with an attention and a neutral condition.
 * example_power_single_C.py Example power simulation for a within-participants design with an attention and a neutral condition, but both conditions share TVA's C parameter
-* example_power_one_condition.py:
+* example_power_one_condition.py: xample power simulation for an experiment with a single condition (and attention being directed to the probe stimulus).
 
 ## Dendencies
 * [PyMC3](https://github.com/pymc-devs/pymc3) 
