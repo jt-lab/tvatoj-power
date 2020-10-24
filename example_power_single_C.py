@@ -13,20 +13,19 @@ the C parameter is assumed to be the same in both conditions.
 
 # Step 1: Define your hypothetical design:
 design = {
-    'num_participants'   : 25,                         # Anzahl der Probanden
-    'SOAs'               : [-100.0, -80.0, -60.0,      # Die SOAs
+    'num_participants'   : 25,                         # Number of participants
+    'SOAs'               : [-100.0, -80.0, -60.0,      # SOAs
                             -40.0, -20.0, 0.0, 20.0,
                             40.0, 60.0, 80.0, 100.0],
 
-    'repetitions'        : [24, 24, 32, 32, 48,        # Die Wdhs in den SOAs
+    'repetitions'        : [24, 24, 32, 32, 48,        # Repetitions of each SOAs
                             48, 48, 32, 32, 24, 24],
-    'C_single_mu'        : 0.070,                      # Mittelwert der simulierten Cs
-    'C_single_sd_between': 0.020,                      # SD mit der die Cs zwischen Probanden varieieren
-    'wp_a_mu'            : 0.55,                       # Mittelwert simulierten wps in der attended Bed. 
-    'wp_a_sd_between'    : 0.02,                       # SD von wp_attended zw. Probanden
-    'wp_n_mu'            : 0.50,                       # Mittelwert wp_neutral ...
-    'wp_n_sd_between'    : 0.005,                      # SD wp_neutral ...
-    'num_simulation'     : 200,                        # Anzahl der sims. Kann so bleiben 
+    'C_single_mu'        : 0.070,                      # Group mean of simulted Cs
+    'C_single_sd_between': 0.020,                      # Group SD of the Cs
+    'wp_a_mu'            : 0.55,                       # Group mean of simultated wp for the attention condition
+    'wp_a_sd_between'    : 0.02,                       # SD of wp_attended
+    'wp_n_mu'            : 0.50,                       # Group mean of wp_neutral ...
+    'wp_n_sd_between'    : 0.005,                      # SD of wp_neutral ...
 }
 
 # Step 2: Define your research goals. (When was the experiment succesful?)
@@ -44,7 +43,7 @@ def check_rates(summary_stats):
 
 # Step 3: Start the simulations and power estimation
 sim_and_fit(setup=design,                                   # The deisgn specified above
-            model_func=hierarchical_model_noncentered,       # A function that returns a pymc3 model  
+            model_func=hierarchical_model_noncentered,      # A function that returns a pymc3 mode
             single_C=True,                                  # Let the simulator know we want the model with a shared C
             iterations=200,                                 # How many simulated experiments do we want?
             condition_func=check_rates,                     # A function that checks our goals (defined above)
