@@ -97,7 +97,7 @@ Currently, the TVATOJ-power uses hardcoded hyper-priors, which are visualized be
 After performing power simulations, optimizing the experimental setup, and collecting real data, you might want to fit the experimental data with the TVATOJ model. This module is not intended to be an easy-to-use TOJ fitting library. However, since the power estimation procedure also fits the data with TVATOJ (and hence has that functionality), and since the other TVATOJ implementations are outdated, it might be a good idea to use `hierarchical_model_noncentered` and `fit` from [tvatojpower.py](./tvatojpower.py) to fit your empirical data. There is currently no proper interface to do so and no documentation, which hopefully will change soon.
 
 ## TODOs
-* Adding an interface to change priors. Perhaps the pymc3 model stub can be created on the user side with the priors attached. The `hierarchical_model_noncentered` function could then check if priors are already defined and only add the defaults if there are none.
+* Adding an interface to change priors. Perhaps a pymc3 model stub can be created on the user side with the priors attached. The `hierarchical_model_noncentered` function could then check if priors are already defined and only add the defaults if there are none.
 * Adding an interface to load and fit empirical data and visualizing results-
 
 
