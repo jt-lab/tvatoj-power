@@ -189,5 +189,5 @@ axs[1, 1].set_title('Prior on $w_p$ parameter\n group standard deviations\n $\\b
 axs[1, 1].set_xlabel('$w_p$')
 
 plt.tight_layout()
-plt.savefig("prior-visualizaions.svg")
+plt.savefig("prior-visualizations.svg")
 plt.show()
