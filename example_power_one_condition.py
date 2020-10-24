@@ -44,8 +44,8 @@ def check_rates(summary_stats):
 
 # Step 3: Start the simulations and power estimation
 sim_and_fit(setup=design,                                # The deisgn specified above
-            model_func=hierarchical_model_noncentered,    # A function that returns a pymc3 model (currently only this one) 
-            single_C=True,                               # 
+            model_func=hierarchical_model_noncentered,   # A function that returns a pymc3 model (currently only this one) 
+            single_C=True,                                
             single_wp=True,
             iterations=200,                              # How many simulated experiments do we want?
             condition_func=check_rates,                  # A function that checks our goals (defined above)
