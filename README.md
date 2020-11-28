@@ -11,7 +11,7 @@ In classic statistics power is probability of avoiding type-II errors. Or in oth
 
 ## Installation
 * Install the dependencies listed above, e.g.: `conda install -c conda-forge pymc3`
-* Clone the repositors: `git clone https://github.com/jeti182/tvatoj-power.git`
+* Clone the repositories: `git clone https://github.com/jeti182/tvatoj-power.git`
 
 ## Module & Examples
 You should then find the following components:
