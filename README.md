@@ -91,7 +91,7 @@ Currently, the TVATOJ-power uses hardcoded hyper-priors, which are visualized be
 
 ![Prior Visualizations](prior-visualizations.svg)
 
- <em>Figure 1. Visualizations of the hyper-priors. Vertical lines mark values reported in the literature (solid lines are  from experiments that used the TVATOJ paradigm, dashed lines are from experiments using traditional whole repors). Further details and references to the cited literature can be found in [Tünnermann (2016, pp. 153–154)](#5).</em>
+ <em>Figure 1. Visualizations of the hyper-priors. Vertical lines mark values reported in the literature (solid lines are  from experiments that used the TVATOJ paradigm, dashed lines are from experiments using traditional whole reports). Further details and references to the cited literature can be found in [Tünnermann (2016, pp. 153–154)](#5).</em>
 
 
 ## Fitting experimental data
