@@ -271,10 +271,14 @@ def sim_and_fit(setup, model_func, iterations, condition_func,
         else:
             out_df.to_csv(outfile, mode='a', header=False)
 
-def fit(model_func, condition_func, outfile='fit.csv'):
-    trace = pymc3.sample(2000, tune=1000, cores=4, init='adapt_diag') #, target_accept=.85)
-    summary_stats = pymc3.summary(trace, hdi_prob=0.95)
-    summary_stats.to_csv(outfile)
+'''
+Convenience function to fit with logging.
+'''            
+def fit(model, outfile='fit.csv'):
+    with model:
+        trace = pymc3.sample(2000, tune=1000, cores=4, init='adapt_diag') #, target_accept=.85)
+        summary_stats = pymc3.summary(trace, hdi_prob=0.95)
+        summary_stats.to_csv(outfile)
     logger.info('The model was fitted and a summary was written to: ' + outfile)
     logger.info('You can analyze the returned trace with help of the Arviz library (https://arviz-devs.github.io/arviz/)')
     logger.info('For instance, plot parameter posteriors with arviz.plot_posterior(trace, var_names=["C", "wp"])')
