@@ -232,7 +232,7 @@ def HDIofICDF(dist_name, credMass=0.95, **args):
 def sim_and_fit(setup, model_func, iterations, condition_func, 
                 goal_var_names=None, log_var_names=['C_mu', 'wp_mu'],
                 single_C=False, single_wp=False, outfile='out.csv',
-                turn_off_warnings=True
+                turn_off_warnings=True,
                 target_accept=0.85):
 
     if (turn_off_warnings):
