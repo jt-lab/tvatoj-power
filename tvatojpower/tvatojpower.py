@@ -234,7 +234,8 @@ def sim_and_fit(setup, model_func, iterations, condition_func,
                 single_C=False, single_wp=False, outfile='out.csv',
                 turn_off_warnings=True,
                 tune=1000,
-                target_accept=0.85):
+                target_accept=0.85,
+                init='adapt_diag'):
 
     if (turn_off_warnings):
         warnings.filterwarnings("ignore")
@@ -250,7 +251,7 @@ def sim_and_fit(setup, model_func, iterations, condition_func,
             model = model_func(data, single_C=single_C, single_wp=single_wp)
         with model:
             pymc3.set_data({'probe_first_count': data['probe_first_count']})
-            trace = pymc3.sample(2000, tune=tune, cores=4, init='adapt_diag', target_accept=target_accept)
+            trace = pymc3.sample(2000, tune=tune, cores=4, init=init, target_accept=target_accept)
             summary_stats = pymc3.summary(trace, var_names=goal_var_names, hdi_prob=0.95)
             print(summary_stats)
         success = condition_func(summary_stats) * 1 # Either 0 or 1, depending on reaching our goals.
