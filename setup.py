@@ -8,5 +8,5 @@ setup(name='tvatojpower',
       author='Jan Tünnermann',
       author_email='jan.tuennermann@uni-marburg.de',
       url='https://github.com/jeti182/tvatoj-power',
-      packages=['tvatoj_power'],
+      packages=['tvatojpower'],
      )
