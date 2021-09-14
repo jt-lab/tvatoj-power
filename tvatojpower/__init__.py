@@ -3,6 +3,6 @@
 # For a copy, see <https://opensource.org/licenses/MIT>.
 
 from tvatojpower import (
-   hierarchical_model_noncentered
+   hierarchical_model_noncentered,
    sim_and_fit
 )
