@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 
-setup(name='tvatoj_power',
+setup(name='tvatojpower',
       version='0.8',
       description='A module for power analyses with the tvatoj-module',
       author='Jan Tünnermann',
