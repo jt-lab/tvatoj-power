@@ -195,7 +195,7 @@ def hierarchical_model_noncentered(data, single_C=False, single_wp=False):
                                 dtype='int64')  
 
         # The deterministic transformation could probably be externalized
-        # However, here the calculation is most safe to produce prober within subject estimates
+        # However, here the calculation is most safe to produce proper within-subject estimates
         vp = pymc3.Deterministic('vp', wp * C)
         vr = pymc3.Deterministic('vr', (1 - wp) * C)
         
